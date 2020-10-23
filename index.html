@@ -194,17 +194,20 @@
     	
         <script>
 	  function urlExists(url, callback){
-		  $.ajax({
-		    type: 'HEAD',
-		    url: url,
-		    success: function(){
-		      callback(true);
-		    },
-		    error: function() {
-		      callback(false);
-		    }
-		  });
-		}
+        var request = false;
+        if (window.XMLHttpRequest) {
+                request = new XMLHttpRequest;
+        } else if (window.ActiveXObject) {
+                request = new ActiveXObject("Microsoft.XMLHttp");
+        }
+
+        if (request) {
+                request.open("GET", url);
+                if (request.status == 200) { return true; }
+        }
+
+        return false;
+}
 		
           $( ".inputButton" ).click(function() {
 	      if(urlExists("http://geo.vortetty.tk/tokens/" + $( ".inputBox" ).val() + ".html")){
