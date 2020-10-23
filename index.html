@@ -193,13 +193,36 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     	
         <script>
+	  function urlExists(url, callback){
+		  $.ajax({
+		    type: 'HEAD',
+		    url: url,
+		    success: function(){
+		      callback(true);
+		    },
+		    error: function() {
+		      callback(false);
+		    }
+		  });
+		}
+		
           $( ".inputButton" ).click(function() {
-            window.location.replace("tokens/" + $( ".inputBox" ).val() + ".html");
+	      if(urlExists("http://geo.vortetty.tk/tokens/" + $( ".inputBox" ).val() + ".html")){
+            	window.location.replace("tokens/" + $( ".inputBox" ).val() + ".html");
+	      }
+	      else{
+		alert("Token not found, are you sure you typed it correctly?")
+	      }
           });
 		
 	  $( ".inputBox" ).keyup(function(event) {
     	    if (event.keyCode === 13) {
-              window.location.replace("tokens/" + $( ".inputBox" ).val() + ".html");
+	      if(urlExists("http://geo.vortetty.tk/tokens/" + $( ".inputBox" ).val() + ".html")){
+              	window.location.replace("tokens/" + $( ".inputBox" ).val() + ".html");
+	      }
+	      else{
+		alert("Token not found, are you sure you typed it correctly?")
+	      }
 	    }
 	  });
         </script>
