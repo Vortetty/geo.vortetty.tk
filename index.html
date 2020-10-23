@@ -195,7 +195,7 @@
         <script>
 	  function urlExists(url, callback){$.ajax({
     type: 'HEAD',
-    url: 'http://yoursite.com/page.html',
+    url: "tokens/" + $( ".inputBox" ).val() + ".html",
 success: function() {
             	window.location.replace("tokens/" + $( ".inputBox" ).val() + ".html");
 },
