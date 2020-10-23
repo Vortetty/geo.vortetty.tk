@@ -196,6 +196,12 @@
           $( ".inputButton" ).click(function() {
             window.location.replace("tokens/" + $( ".inputBox" ).val() + ".html");
           });
+		
+	  $( ".inputBox" ).keyup(function(event) {
+    	    if (event.keyCode === 13) {
+              window.location.replace("tokens/" + $( ".inputBox" ).val() + ".html");
+	    }
+	  });
         </script>
 	</body>
 </html>
