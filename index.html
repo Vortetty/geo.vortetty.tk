@@ -193,39 +193,25 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     	
         <script>
-	  function urlExists(url, callback){
-        var request = false;
-        if (window.XMLHttpRequest) {
-                request = new XMLHttpRequest;
-        } else if (window.ActiveXObject) {
-                request = new ActiveXObject("Microsoft.XMLHttp");
-        }
-
-        if (request) {
-                request.open("GET", url);
-                if (request.status == 200) { return true; }
-        }
-
-        return false;
+	  function urlExists(url, callback){$.ajax({
+    type: 'HEAD',
+    url: 'http://yoursite.com/page.html',
+success: function() {
+            	window.location.replace("tokens/" + $( ".inputBox" ).val() + ".html");
+},
+error: function() {
+		alert("Token not found, are you sure you typed it correctly?")
+}
+});
 }
 		
           $( ".inputButton" ).click(function() {
-	      if(urlExists("http://geo.vortetty.tk/tokens/" + $( ".inputBox" ).val() + ".html")){
-            	window.location.replace("tokens/" + $( ".inputBox" ).val() + ".html");
-	      }
-	      else{
-		alert("Token not found, are you sure you typed it correctly?")
-	      }
+	      urlExists("http://geo.vortetty.tk/tokens/" + $( ".inputBox" ).val() + ".html")
           });
 		
 	  $( ".inputBox" ).keyup(function(event) {
     	    if (event.keyCode === 13) {
-	      if(urlExists("http://geo.vortetty.tk/tokens/" + $( ".inputBox" ).val() + ".html")){
-              	window.location.replace("tokens/" + $( ".inputBox" ).val() + ".html");
-	      }
-	      else{
-		alert("Token not found, are you sure you typed it correctly?")
-	      }
+	      urlExists("http://geo.vortetty.tk/tokens/" + $( ".inputBox" ).val() + ".html")
 	    }
 	  });
         </script>
