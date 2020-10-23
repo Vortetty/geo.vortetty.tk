@@ -10,7 +10,6 @@
         <link rel="stylesheet" href="bootstrap.min.css"> <!-- overwrites default bootstrap theme for a nice gunmetal theme -->
         
         <!-- Put stuff below here -->
-        <link rel="stylesheet" href="font.css">
 
         <style>
             
@@ -53,28 +52,14 @@
     <body>
         <!-- nav -->
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-            <a href="#" class="navbar-brand">Light Wiki</a>
+            <a href="#" class="navbar-brand">Token #000000</a>
+            <a href="https://github.com/Vortetty" class="navbar-brand">Added by Vortetty</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="blocks.html">Blocks<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="itemsliquids.html">Items/Liquids<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="mechs.html">Mechs<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="zones.html">Zones<span class="sr-only">(current)</span></a>
-                    </li>
                     <span class="nav-item" style="margin:auto;"> © 2019 Vortetty</span>
                 </ul>
             </div>
@@ -84,62 +69,46 @@
         <div class="container content">
             <div class="row">
                     <div class="col-lg-4">
-                        <img class="rounded-circle" src="https://raw.githubusercontent.com/Vortetty/Light/master/sprites/blocks/lightlauncher.png" alt="Blocks.png" width="140" height="140">
-                        <h2>Blocks</h2>
-                        <p>All of the blocks in the mod. Includes tiles, ores, and all machines.</p>
-                        <p>
-                            <a class="btn btn-secondary" href="blocks.html" role="button">Details</a>
-                        </p>
-                    </div>
-                    <div class="col-lg-4">
-                        <img class="rounded-circle" src="https://raw.githubusercontent.com/Vortetty/Light/master/sprites/items/lightcube.png" alt="itemsliquids.png" width="140" height="140">
-                        <h2>Items and Liquids</h2>
-                        <p>All of the items and liquids in the mod.</p>
-                        <p>
-                            <a class="btn btn-secondary" href="itemsliquids.html" role="button">Details</a>
-                        </p>
-                    </div>
-                    <div class="col-lg-4">
-                        <img class="rounded-circle" src="https://raw.githubusercontent.com/Vortetty/Light/master/sprites/mechs/eradicator.png" alt="mechs.png" width="140" height="140">
-                        <h2>Mechs</h2>
-                        <p>All of the mechs in the mod.</p>
-                        <p>
-                            <a class="btn btn-secondary" href="mechs.html" role="button">Details</a>
-                        </p>
-                    </div>
-                    <div class="col-lg-4">
                         <img class="rounded-circle" src="https://raw.githubusercontent.com/Vortetty/Light/master/sprites/lightcavern-zone.png" alt="zones.png" width="140" height="140">
-                        <h2>zones</h2>
-                        <p>All of the zones in the mod.</p>
-                        <p>
-                            <a class="btn btn-secondary" href="zones.html" role="button">Details</a>
-                        </p>
+                        <h2>Starting day</h2>
+                        <p>Where it started</p>
+                        <table id="tablePreview" class="table table-striped table-sm">
+                            <!--Table head-->
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+    
+                            <!--Table body-->
+			                <tbody>
+                                <tr>
+                                    <th scope="row">Date</th>
+                                    <td>24/10/2020</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Time</th>
+                                    <td>Unknown PST</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Latitude</th>
+                                    <td>unknown</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Longitude</th>
+                                    <td>unknown</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Planted by</th>
+                                    <td>Vortetty</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
             </div>
         </div>
         <!-- scripts -->
-        <script>
-            // Get query parameter
-            // Source: https://css-tricks.com/snippets/javascript/get-url-variables/
-            function getQueryParameter(variable) {
-                var query = window.location.search.substring(1);
-                var vars = query.split("&");
-                for (var i = 0; i < vars.length; i++) {
-                    var pair = vars[i].split("=");
-                    if (pair[0] == variable) {
-                        return pair[1];
-                    }
-                }
-                return (false);
-            }
-            // Capture the `content` query parameter from the URL.
-            var content = getQueryParameter('content')
-            if(content.toLowerCase() === 'blocks') {
-                $('.blocks').show();
-            } else if(content.toLowerCase() === 'itemsliquids') {
-                $('.itemsliquids').show();
-            }
-        </script>
             
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
